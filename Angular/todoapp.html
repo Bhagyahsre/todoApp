@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+
+<head>
+    <title>My Todo App</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <section class="main-container" ng-controller="todoController">
+        <h1>My Todo App </h1>
+        <form name="form" class="form" ng-submit="addTodo()" >
+            <label>Name</label>
+            <input type="text" placeholder="Name" class="todoinput"ng-model="todoItem" required>
+            <button ng-disabled="form.$invalid" >Add</button>
+           
+            <ul>
+                <li ng-repeat="todo in todos" ng-class="{'archive':todo.archive ,'unarchive':todo.unarchive}"  >
+                    <input type="checkbox" ng-model="todo.done"  ng-click="checked()"ng-click="remains()" > 
+                    <span ng-class="{'done':todo.done }"  >
+                		{{todo.title}}
+                	</span>
+                </li>
+            </ul>
+        </form>
+        <span  >Total :{{count}} </span><br>
+        <span> Checked :{{checke}}</span><br>
+        <span> Remain :{{remain}}</span><br>
+
+        <button ng-click="remove()">Remove</button>
+         <button ng-click="all()">All</button>
+         <button ng-click="archive()" >Archive </button>
+         <button ng-click="unarchive()" >unArchive </button>
+
+
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js">
+    </script>
+    <script src="js/todo.js"></script>
+</body>
+
+</html>
