@@ -7,32 +7,37 @@
 </head>
 
 <body>
-    <section class="main-container" ng-controller="todoController">
+    <section class="main-container" ng-controller="todoController" ng-cloak >
+        
         <h1>My Todo App </h1>
-        <form name="form" class="form" ng-submit="addTodo()" >
+        <form name="form" class="form" ng-submit="addTodo()">
             <label>Name</label>
-            <input type="text" placeholder="Name" class="todoinput"ng-model="todoItem" required>
-            <button ng-disabled="form.$invalid" >Add</button>
-           
+            <input type="text" placeholder="Name" class="todoinput" ng-model="todoItem" required >
+            <button  class="add"ng-disabled="form.$invalid">Add</button>
+            <div  class="form1">
             <ul>
-                <li ng-repeat="todo in todos" ng-class="{'archive':todo.archive ,'unarchive':todo.unarchive}"  >
-                    <input type="checkbox" ng-model="todo.done"  ng-click="checked()"ng-click="remains()" > 
-                    <span ng-class="{'done':todo.done }"  >
-                		{{todo.title}}
-                	</span>
+                <li ng-repeat="todo in todos" ng-class="{'archive':todo.archive ,'unarchive':todo.unarchive}">
+                    <input type="checkbox" ng-model="todo.done" ng-c-lick="checked()" ng-click="remains()">
+                    <span ng-class="{'done':todo.done }">
+                        {{todo.title}}
+                    </span>
                 </li>
             </ul>
+              </div>
         </form>
-        <span  >Total :{{count}} </span><br>
-        <span> Checked :{{checke}}</span><br>
-        <span> Remain :{{remain}}</span><br>
-
-        <button ng-click="remove()">Remove</button>
-         <button ng-click="all()">All</button>
-         <button ng-click="archive()" >Archive </button>
-         <button ng-click="unarchive()" >unArchive </button>
-
-
+      
+        <div class="footer">
+            <span>Total :{{count}} </span>
+            <br>
+            <span> Checked :{{checke}}</span>
+            <br>
+            <span> Remain :{{remain}}</span>
+            <br>
+            <button  class="remove"ng-click="remove()">Remove</button>
+            <button class="toggle"ng-click="toggle()">All</button>
+            <button class="archive" ng-click="archive()">Archive </button>
+            <button class="unarchive"ng-click="unarchive()">unArchive </button>
+        </div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js">
     </script>

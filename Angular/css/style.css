@@ -9,22 +9,77 @@
     -webkit-box-shadow: 3px 3px 20px 0px rgba(87, 82, 87, 1);
     -moz-box-shadow: 3px 3px 20px 0px rgba(87, 82, 87, 1);
     box-shadow: 3px 3px 20px 0px rgba(87, 82, 87, 1);
+    /*background-color: #D3D3D3;*/
 }
 
 .main-container h1 {
     text-align: center;
     margin-top: 0;
 }
-li{
-	list-style: none;
+
+li {
+    list-style: none;
 }
-.done{
+
+.done {
     text-decoration: line-through;
     color: green;
 }
-.archive{
-    display:none;
+
+
+
+.form1 {
+    height: 131px;
+    overflow-y: auto;
+}
+
+.add{
+    background-color: #C80000  ;
+    border-style: none;
+    width: 46px;
+    height: 22px;
+}
+.remove{
+      background-color: #FFCC33 ;
+    border-style: none;
+    width: 58px;
+    height: 22px;
+}
+input{
+    border:1px solid ;
+    outline: none;
 }
 .unarchive{
-    display: block;
+      background-color: #FFCC33 ;
+    border-style: none;
+    width: 80px;
+    height: 22px;
+}
+.archive{
+      background-color: #FFCC33 ;
+    border-style: none;
+    width: 58px;
+    height: 22px;
+}
+.toggle{
+      background-color: #FFCC33 ;
+    border-style: none;
+    width: 58px;
+    height: 22px;
+}
+.ng-dirty .ng-invalid{
+    
+
+    border:2px solid #B00000 ;
+}
+
+.ng-dirty .ng-valid{
+    border:2px solid #0c6 ;
+}
+
+.ng-pristine .ng-invalid{
+    border:2px solid #D3D3D3;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
