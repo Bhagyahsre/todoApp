@@ -1,0 +1,41 @@
+{
+  "name": "projecttracker",
+  "version": "1.0.0",
+  "description": "Track projects internally",
+  "main": "index.js",
+  "dependencies": {
+    "node": "^0.0.0"
+  },
+  "devDependencies": {
+    "csslint": "^0.10.0",
+    "gulp": "^3.9.0",
+    "gulp-accessibility": "^1.2.1",
+    "gulp-csslint": "^0.2.0",
+    "gulp-htmlhint": "^0.3.0",
+    "gulp-include-template": "^0.1.3",
+    "gulp-livereload": "^3.8.0",
+    "gulp-prettify": "^0.3.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-sequence": "^0.4.1",
+    "gulp-util": "^3.0.6",
+    "gulp-w3cjs": "^1.1.0",
+    "gulp-watch": "^4.3.5",
+    "pre-commit": "^1.1.1",
+    "w3cjs": "^0.3.0",
+    "handlebars":"v1.3.0"
+  },
+  "scripts": {
+    "test": "echo \"BBB: no test specified\" && exit 1",
+    "htmlhint": "gulp htmlhint",
+    "csslint": "gulp csslint"
+  },
+  "pre-commit": {
+    "silent": true,
+    "run": [
+      "htmlhint",
+      "csslint"
+    ]
+  },
+  "author": "",
+  "license": "ISC"
+}
