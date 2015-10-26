@@ -38,8 +38,7 @@
   "pre-commit": {
     "silent": true,
     "run": [
-      "htmlhint",
-      "csslint"
+     
     ]
   },
   "author": "",
