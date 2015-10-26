@@ -1,12 +1,6 @@
 var todo = angular.module('todoApp', []);
 todo.controller('todoController', ['$scope', function($scope) {
-    $scope.todos = [
-        // {
-        // 	'title':'my first task',
-        // 	'done':false,
-
-        // }
-    ];
+    $scope.todos = [];
     $scope.count = 0;
     $scope.remain = 0;
     $scope.checke = 0;
@@ -32,10 +26,12 @@ todo.controller('todoController', ['$scope', function($scope) {
         $scope.checke = 0;
     }
     $scope.unarchive = function() {
+
         $scope.todos.filter(function(item) {
             return item.archive;
         }).forEach(function(item) {
             item.unarchive = true;
+            item.archive = false;
             item.done = false;
         });
         $scope.remain = $scope.remains();
@@ -55,7 +51,7 @@ todo.controller('todoController', ['$scope', function($scope) {
             'done': false,
             'archive': false,
             'unarchive': false
- 
+
         });
         $scope.todoItem = '';
         $scope.count = $scope.todos.length;
@@ -69,7 +65,7 @@ todo.controller('todoController', ['$scope', function($scope) {
         });
         $scope.remain = $scope.remains();
         $scope.count = $scope.todos.length;
-        $scope.checke=0;
+        $scope.checke = 0;
 
     };
 

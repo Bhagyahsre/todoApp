@@ -7,25 +7,23 @@
 </head>
 
 <body>
-    <section class="main-container" ng-controller="todoController" ng-cloak >
-        
+    <section class="main-container" ng-controller="todoController" ng-cloak>
         <h1>My Todo App </h1>
         <form name="form" class="form" ng-submit="addTodo()">
             <label>Name</label>
-            <input type="text" placeholder="Name" class="todoinput" ng-model="todoItem" required >
-            <button  class="add"ng-disabled="form.$invalid">Add</button>
-            <div  class="form1">
-            <ul>
-                <li ng-repeat="todo in todos" ng-class="{'archive':todo.archive ,'unarchive':todo.unarchive}">
-                    <input type="checkbox" ng-model="todo.done" ng-c-lick="checked()" ng-click="remains()">
-                    <span ng-class="{'done':todo.done }">
+            <input type="text" placeholder="Name" class="todoinput" ng-model="todoItem" required>
+            <button class="add" ng-disabled="form.$invalid">Add</button>
+            <div class="form1">
+                <ul>
+                    <li ng-repeat="todo in todos" ng-class="{'archive':todo.archive  ,'unarchive':todo.unarchive}">
+                        <input type="checkbox" ng-model="todo.done" ng-click="checked()" ng-click="remains()">
+                        <span ng-class="{'done':todo.done }">
                         {{todo.title}}
                     </span>
-                </li>
-            </ul>
-              </div>
+                    </li>
+                </ul>
+            </div>
         </form>
-      
         <div class="footer">
             <span>Total :{{count}} </span>
             <br>
@@ -33,10 +31,10 @@
             <br>
             <span> Remain :{{remain}}</span>
             <br>
-            <button  class="remove"ng-click="remove()">Remove</button>
-            <button class="toggle"ng-click="toggle()">All</button>
-            <button class="archive" ng-click="archive()">Archive </button>
-            <button class="unarchive"ng-click="unarchive()">unArchive </button>
+            <button class="remove" ng-click="remove()">Remove</button>
+            <button class="toggle" ng-click="toggle()">All</button>
+            <button class="archive-button" ng-click="archive()">Archive </button>
+            <button class="unarchive-button" ng-click="unarchive()">unArchive </button>
         </div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js">
