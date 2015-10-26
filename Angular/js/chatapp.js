@@ -42,7 +42,7 @@
     
         $scope.typing = function() {
        
-            // $('.person-typing').innerHTML = "person typing";
+           
             document.getElementsByClassName('person-typing')[0].innerHTML="person typing";
         }
 
