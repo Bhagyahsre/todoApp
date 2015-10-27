@@ -1,27 +1,48 @@
-    var messagesRef = new Firebase('https://tj9557bm2lq.firebaseio-demo.com/');
+    var ref = new Firebase('https://kato-typing.firebaseio-demo.com/');
 
 
     var messageField = $('#messageInput');
 
     var messageList = $('#example-messages');
 
+    var to;
+    $('#messageInput').keydown(isTyping);
+    ref.on('value', logValue);
+
+    function isTyping() {
+
+        if (to) {
+            clearTimeout(to);
+            to = null;
+        }
+        ref.set('Is typing');
+        to = $('#messageInput').enter(stoppedTyping);
+    }
+
+    function stoppedTyping(snapshot) {
+        to = null;
+        ref.remove();
+    }
+
+    function logValue(snapshot) {
+        // if (!snapshot.val())
+        $('.person-typing').text(snapshot.val());
+
+    }
+
 
     messageField.keypress(function(e) {
         if (e.keyCode == 13) {
-
-
             var message = messageField.val();
-
-
-            messagesRef.push({
-                text: message
-            });
+            ref
+                .push({
+                    text: message
+                });
             messageField.val('');
         }
     });
 
-
-    messagesRef.limitToLast(5).on('child_added', function(snapshot) {
+    ref.limitToLast(5).on('child_added', function(snapshot) {
 
 
         var data = snapshot.val();
@@ -39,11 +60,11 @@
     });
     var chatapp = angular.module('typingmodule', []);
     chatapp.controller('chatAppController', ['$scope', function($scope) {
-    
+
         $scope.typing = function() {
-       
-           
-            document.getElementsByClassName('person-typing')[0].innerHTML="person typing";
+
+
+            // document.getElementsByClassName('person-typing')[0].innerHTML = "person typing";
         }
 
     }]);
